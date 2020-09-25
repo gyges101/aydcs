@@ -1,0 +1,148 @@
+{% extends 'portail/mainp.html' %}
+
+{% block body %}
+
+
+
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Message Recu</h4>
+                  <p class="card-category">Source Des Message Page De Contact</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Date
+                        </th>
+                        <th>
+                          Nom
+                        </th>
+                        <th>
+                          Email
+                        </th>
+                        <th>
+                          Sujet
+                        </th>
+                        <th>
+                          Voir Message
+                        </th>
+                        <th>
+                          Supprimer
+                        </th>
+                      </thead>
+                      <tbody>
+                        {% for m in msg %}
+                        <tr>
+                          <td>
+                            {{m.temps}}
+                          </td>
+                          <td>
+                            {{m.nom}}
+                          </td>
+                          <td>
+                            {{m.email}}
+                          </td>
+                          <td>
+                            {{m.sujet}}
+                          </td>
+                          <td class="text-primary">
+                            <a href="{% url 'aydcs_app:message' m.pk %}">
+                            <button class="btn btn-primary btn-round">Voir</button>
+                          </a>
+                          </td>
+                          <td class="text-primary">
+                            <form action="{% url 'aydcs_app:delete' m.pk %}" method="POST">
+                              {% csrf_token %}
+                            <button class="btn btn-primary btn-round">Supp</button>
+                            </form>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Demande Essai</h4>
+                  <p class="card-category">Source Des Demande Page De Cours</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          Date
+                        </th>
+                        <th>
+                          Nom
+                        </th>
+                        <th>
+                          Prenom
+                        </th>
+                        <th>
+                          Telephone
+                        </th>
+                        <th>
+                          Matiere
+                        </th>
+                        <th>
+                          Supprimer
+                        </th>
+                      </thead>
+                      <tbody>
+                        {% for m in dmn %}
+                        <tr>
+                          <td>
+                            {{m.timesend}}
+                          </td>
+                          <td>
+                            {{m.nom}}
+                          </td>
+                          <td>
+                            {{m.prenom}}
+                          </td>
+                          <td>
+                            {{m.telephone}}
+                          </td>
+                          <td>
+                            {{m.cours}}
+                          </td>
+                          <td class="text-primary">
+                            <form action="{% url 'aydcs_app:delete_essai' m.pk %}" method="POST">
+                              {% csrf_token %}
+                            <button class="btn btn-primary btn-round">Supp</button>
+                            </form>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      {% endblock body %}

@@ -1,0 +1,190 @@
+{% extends 'main.html' %}
+
+
+
+{% block body %}
+
+    
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/static/images/salle.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Cours</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'aydcs_app:home' %}">Acceuil <i class="ion-ios-arrow-forward"></i></a></span> <span>Cours <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+	</section>
+
+	<section class="ftco-section testimony-section">
+		<div class="container">
+
+
+		</div>
+	  </section>
+	<section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb" style="background-image: url(/static/images/bureauaydcs.jpg);" data-stellar-background-ratio="0.5" id="essai">
+    	<div class="overlay"></div>
+    	<div class="container">
+    		<div class="row justify-content-end">
+    			<div class="col-md-6 py-5 px-md-5">
+    				<div class="py-md-5">
+		          <div class="heading-section heading-section-white ftco-animate mb-5">
+		            <h2 class="mb-4">Demander Une Séance D'essai</h2>
+		            <p>Vous Pouvez Essai Une Séance Gratuite !</p>
+		          </div>
+		          <form method="POST" class="appointment-form ftco-animate">
+					  {% csrf_token %}
+		    				<div class="d-md-flex">
+			    				<div class="form-group">
+			    					<input type="text" class="form-control" placeholder="Prenom" name="prenom">
+			    				</div>
+			    				<div class="form-group ml-md-4">
+			    					<input type="text" class="form-control" placeholder="Nom" name="nom">
+			    				</div>
+		    				</div>
+		    				<div class="d-md-flex">
+		    					<div class="form-group">
+			    					<div class="form-field">
+		        					<div class="select-wrap">
+		                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                    <select name="cours" id="" class="form-control">
+								<option value="" style="color: rgb(95, 95, 95);">Cours</option>
+								{% for c in coursList %}
+								
+								<option value="{{c.coursValid}}" style="color: black;">{{c.coursValid}}</option>
+								{% endfor %}
+		                    </select>
+		                  </div>
+			              </div>
+			    				</div>
+		    					<div class="form-group ml-md-4">
+									<input type="text" class="form-control" placeholder="Numero Telephone" name="telephone">
+									<input type="text" class="form-control" id="datenow" style="display: none;" name="timesend">
+			    				</div>
+		    				</div>
+		    				<div class="d-md-flex">
+		    					<div class="form-group">
+			              
+			            </div>
+			            <div class="form-group ml-md-4">
+			              <input type="submit" value="Envoyer" class="btn btn-primary py-3 px-4">
+			            </div>
+		    				</div>
+		    			</form>
+		    		</div>
+    			</div>
+        </div>
+    	</div>
+	</section>
+
+
+
+    <section class="ftco-section">
+			<div class="container-fluid px-4">
+				<div class="row">
+					<div class="col-md-3 course ftco-animate">
+						<div class="img" style="background-image: url(/static/images/math.jpg);"></div>
+						<div class="text pt-4">
+							<p class="meta d-flex">
+								<span><i class="icon-user mr-2"></i>Mr. Khan</span>
+								<span><i class="icon-table mr-2"></i>20 Eleves</span>
+							</p>
+							<h3><a href="#">Mathematique</a></h3>
+							<p></p>
+							<p><a href="#essai" class="btn btn-primary">Séance D'essai</a></p>
+						</div>
+					</div>
+					<div class="col-md-3 course ftco-animate">
+						<div class="img" style="background-image: url(/static/images/pc.jpg);"></div>
+						<div class="text pt-4">
+							<p class="meta d-flex">
+								<span><i class="icon-user mr-2"></i>Mr. Khan</span>
+								<span><i class="icon-table mr-2"></i>10 seats</span>
+							</p>
+							<h3><a href="#">Physique Chimie</a></h3>
+							<p></p>
+							<p><a href="#essai" class="btn btn-primary">Séance D'essai</a></p>
+						</div>
+					</div>
+					<div class="col-md-3 course ftco-animate">
+						<div class="img" style="background-image: url(/static/images/svt.jpg);"></div>
+						<div class="text pt-4">
+							<p class="meta d-flex">
+								<span><i class="icon-user mr-2"></i>Mr. Khan</span>
+								<span><i class="icon-table mr-2"></i>10 seats</span>
+							</p>
+							<h3><a href="#">Science Vie Et Terre</a></h3>
+							<p></p>
+							<p><a href="#essai" class="btn btn-primary">Séance D'essai</a></p>
+						</div>
+					</div>
+					<div class="col-md-3 course ftco-animate">
+						<div class="img" style="background-image: url(/static/images/compta.jpg);"></div>
+						<div class="text pt-4">
+							<p class="meta d-flex">
+								<span><i class="icon-user mr-2"></i>Mr. Khan</span>
+								<span><i class="icon-table mr-2"></i>10 seats</span>
+
+							</p>
+							<h3><a href="#">Comptabilite</a></h3>
+							<p></p>
+							<p><a href="#essai" class="btn btn-primary">Séance D'essai</a></p>
+						</div>
+					</div>
+
+					<div class="col-md-3 course ftco-animate">
+						<div class="img" style="background-image: url(/static/images/eco.jpg);"></div>
+						<div class="text pt-4">
+							<p class="meta d-flex">
+								<span><i class="icon-user mr-2"></i>Mr. Khan</span>
+								<span><i class="icon-table mr-2"></i>10 seats</span>
+							</p>
+							<h3><a href="#">Economie General</a></h3>
+							<p></p>
+							<p><a href="#essai" class="btn btn-primary">Séance D'essai</a></p>
+						</div>
+					</div>
+					<div class="col-md-3 course ftco-animate">
+						<div class="img" style="background-image: url(/static/images/hg.jpg);"></div>
+						<div class="text pt-4">
+							<p class="meta d-flex">
+								<span><i class="icon-user mr-2"></i>Mr. Khan</span>
+								<span><i class="icon-table mr-2"></i>10 seats</span>
+
+							</p>
+							<h3><a href="#">Histoire Geographie</a></h3>
+							<p></p>
+							<p><a href="#essai" class="btn btn-primary">Séance D'essai</a></p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+
+		<script type="text/javascript">
+			function SetDate()
+			{
+			var date = new Date();
+			
+			var day = date.getDate();
+			var month = date.getMonth() + 1;
+			var year = date.getFullYear();
+			
+			if (month < 10) month = "0" + month;
+			if (day < 10) day = "0" + day;
+			
+			var today = year + "-" + month + "-" + day;
+			
+			
+			document.getElementById('datenow').value = today;
+			}
+	  
+			SetDate();
+		</script>
+
+
+{% endblock body %}
+		
