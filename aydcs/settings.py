@@ -29,7 +29,7 @@ SECRET_KEY = '_osj$(&t4ie3uj-+trdml$450gzp9#)*@i%vzejz8$c(41)-6p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['86697e6f21e9.ngrok.io']
+ALLOWED_HOSTS = ['aydcs.herokuapp.com']
 
 
 # Application definition
